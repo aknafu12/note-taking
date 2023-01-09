@@ -2,13 +2,12 @@ import {useEffect, useRef, useState} from "react"
 import {useRouter} from "next/router"
 import {E, connect, updateState} from "/utils/state"
 import "focus-visible/dist/focus-visible"
-import {Box, Center, Code, Heading, Link, VStack} from "@chakra-ui/react"
-import NextLink from "next/link"
+import {Button, HStack, Heading} from "@chakra-ui/react"
 import NextHead from "next/head"
 
 const EVENT = "ws://localhost:8000/event"
 export default function Component() {
-const [state, setState] = useState({"events": [{"name": "state.hydrate"}]})
+const [state, setState] = useState({"count": 0, "events": [{"name": "state.hydrate"}]})
 const [result, setResult] = useState({"state": null, "events": [], "processing": false})
 const router = useRouter()
 const socket = useRef(null)
@@ -37,24 +36,22 @@ useEffect(() => {
   update()
 })
 return (
-<Center sx={{"paddingTop": "10%"}}>
-<VStack spacing="1.5em"
-sx={{"fontSize": "2em"}}>
+<HStack>
+<Button colorScheme="red"
+onClick={() => Event([E("state.decrement", {})])}
+sx={{"borderRadius": "1em"}}>
+{`Decrement`}</Button>
 <Heading sx={{"fontSize": "2em"}}>
-{`Welcome to Pynecone!`}</Heading>
-<Box>
-{`Get started by editing `}
-<Code sx={{"fontSize": "1em"}}>
-{`counterAPP/counterAPP.py`}</Code></Box>
-<NextLink href="https://pynecone.io/docs/getting-started/introduction"
-passHref={true}>
-<Link sx={{"border": "0.1em solid", "padding": "0.5em", "borderRadius": "0.5em", "_hover": {"color": "rgb(107,99,246)"}}}>
-{`Check out our docs!`}</Link></NextLink></VStack>
+{state.count}</Heading>
+<Button colorScheme="green"
+onClick={() => Event([E("state.increment", {})])}
+sx={{"borderRadius": "1em"}}>
+{`Increment`}</Button>
 <NextHead>
 <title>{`Pynecone App`}</title>
 <meta name="description"
 content="A Pynecone app."/>
 <meta content="favicon.ico"
-property="og:image"/></NextHead></Center>
+property="og:image"/></NextHead></HStack>
 )
 }
