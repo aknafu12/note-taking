@@ -6,6 +6,41 @@ import pynecone as pc
 docs_url = "https://pynecone.io/docs/getting-started/introduction"
 filename = f"{config.app_name}/{config.app_name}.py"
 
+import pynecone as pc
+
+
+class State(pc.State):
+    count: int = 0
+
+    def increment(self):
+        self.count += 1
+
+    def decrement(self):
+        self.count -= 1
+
+
+def index():
+    return pc.hstack(
+        pc.button(
+            "Decrement",
+            color_scheme="red",
+            border_radius="1em",
+            on_click=State.decrement,
+        ),
+        pc.heading(State.count, font_size="2em"),
+        pc.button(
+            "Increment",
+            color_scheme="green",
+            border_radius="1em",
+            on_click=State.increment,
+        ),
+    )
+
+
+app = pc.App(state=State)
+app.add_page(index)
+app.compile()
+'''
 
 class State(pc.State):
     """The app state."""
@@ -39,3 +74,4 @@ def index():
 app = pc.App(state=State)
 app.add_page(index)
 app.compile()
+'''
