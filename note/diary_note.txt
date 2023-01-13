@@ -1,0 +1,31 @@
+#mysql db 
+#mysql db
+DATABASES = {   
+    'default': {   
+        'ENGINE': 'django.db.backends.mysql',   
+        'NAME': 'crud_api',   
+        'USER': 'root',   
+        'PASSWORD': '',   
+        'HOST': '127.0.0.1',   
+        'PORT': '3306',            
+    }   
+} 
+
+#30/4/2015-08/01/2023
+What is Pynecone?
+It is an open-source, full-stack python framework that makes it easy to build and deploy web apps in minutes. It offers the ease of use and accessibility of low-code frameworks, combined with the flexibility, performance, and customizability of traditional web development.
+Pynecone is a tool in the Frameworks (Full Stack) category of a tech stack.
+
+#CRUD api using :django, djangorestfromework
+database:MySQL(crud_api:db name
+admin = admin
+password:T1
+py manage.py makemigrations <appName>> run when we create new table(class)
+py manage.py migrate => to save db change
+To be able to use PostgreSQL in Django we have to install a package called psycopg2(The psycopg2 package is a driver that is necessary 
+for PostgreSQL to work in Python.)
+To be able to use MySQL driver in Django we have to install a package called databaseclient.
+sync install apps with database=> py manage.py syncdb
+ ===== aws ====
+   AWS services offer scalable solutions for 
+     compute, storage, databases, analytics,
