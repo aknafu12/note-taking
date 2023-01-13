@@ -1,3 +1,3 @@
 # BACK-END
-this is NOTE rest api implementation using django, restdjangoframework 
-having three fields with title,description,created date
+I have builded an API for a simple note-taking web app. I want to build a REST-ful API with the CRUD endpoints, to create, read, update, and delete notes.
+using django, restdjangoframework 
